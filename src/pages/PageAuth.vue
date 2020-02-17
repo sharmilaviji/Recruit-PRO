@@ -40,7 +40,7 @@
 export default {
   data () {
     return {
-      tab: 'signin'
+      tab: 'login'
     }
   },
   components: {

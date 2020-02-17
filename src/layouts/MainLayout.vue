@@ -29,22 +29,8 @@ class="absolute-right" />
 
 
 
-  <q-drawer
- v-model="leftDrawerOpen"
- bordered
- content-class="bg-grey-2">
- <q-list>
-   <q-item-label header></q-item-label>
- <q-item to="auth/" clickable>
- <q-item-section avatar>
-     <q-icon name=""/>
-   </q-item-section>
-   <q-item-section>
-   <q-item-label>My Profile</q-item-label>
-   </q-item-section>
-   </q-item>
-     </q-list>
-</q-drawer>
+  
+  
 
 
 

@@ -38,17 +38,17 @@ const actions = {
             firebaseAuth.signOut()
         },
         handleAuthStateChange({ commit}) {
-            firebaseAuth.onAuthStateChanged(function(user)
+            firebaseAuth.onAuthStateChanged(user =>
             {
                     if (user) {
                       commit('setLoggedIn' , true)
-                      this.$router.push('/')
+                     this.$router.replace('/auth')
                     }
                     else {
                         commit('setLoggedIn' , false)
-                        this.$router.replace('/auth')
+                        this.$router.push('/')
                     }
-                });
+                })
          }
     }
 const getters = {
