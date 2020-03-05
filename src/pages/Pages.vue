@@ -1,76 +1,71 @@
-
 <template>
- <div class="q-pa-md q-gutter-sm">
-    <br><br> <b><center>  WELCOME USER</center></b>
- <q-drawer
- v-model="leftDrawerOpen"
- bordered
- content-class="bg-grey-2">
- <q-list>
-   <q-item-label header></q-item-label>
- <q-item to="/company" clickable>
- <q-item-section avatar>
-     <q-icon name="list"/>
-   </q-item-section>
-   <q-item-section>
-   <q-item-label>Job Details</q-item-label>
-   </q-item-section>
-   </q-item>
-     </q-list>
+<q-page padding>
+ <q-card>
+        <q-tabs
+          v-model="tab"
+          dense
+          class="text-grey"
+          active-color="primary"
+          indicator-color="primary"
+          align="justify"
+          narrow-indicator
+        >
+          <q-tab name="jobdetails" label="Job Details" />
+          <q-tab name="jobdescription" label="Job Descriptions" />
+           <q-tab name="companydetails" label="Company Details" />
+         
+         
+         
+        </q-tabs>
 
-      <q-list>
-   <q-item-label header></q-item-label>
- <q-item to="/company" clickable>
- <q-item-section avatar>
-     <q-icon name="create"/>
-   </q-item-section>
-   <q-item-section>
-   <q-item-label>Job Description</q-item-label>
-   </q-item-section>
-   </q-item>
-     </q-list>
+        <q-separator />
 
-     <q-list>
-   <q-item-label header></q-item-label>
- <q-item to='/company' clickable>
- <q-item-section avatar>
-     <q-icon name="account_circle"/>
-   </q-item-section>
-   <q-item-section>
-   <q-item-label>Company Profile</q-item-label>
-   </q-item-section>
-   </q-item>
-     </q-list>
-     
-     
-     
-</q-drawer>
+        <q-tab-panels v-model="tab" animated>
+          <q-tab-panel name="jobdetails">
+            <div class="text-h4"></div>
+            <jobdetails/>
+          </q-tab-panel>
 
- </div>
-    
+          <q-tab-panel name="jobdescription">
+            <div class="text-h4"></div>
+          <jobdescription/>
+          </q-tab-panel>
+
+          <q-tab-panel name="companydetails">
+            <div class="text-h4"></div>
+          <companyprofile/>
+          </q-tab-panel>
 
 
-    
-    </template>
+          
+          
+        </q-tab-panels>
+      </q-card>
+
+</q-page>
+</template>
 <script>
 export default {
   data () {
     return {
-      tab: 'company'
+      tab: 'jobdetails'
     }
   },
-   data(){
-    return{
-      leftDrawerOpen:this.$q.platform.is.desktop
-    }
-  },
-
-
   components: {
-     'company': require('components/Auth/Companyprofile.vue').default
-      },
+      'jobdetails': require('components/Auth/Jobdetails.vue').default,
+      'jobdescription': require('components/Auth/Jobdescription.vue').default,
+      'companydetails': require('components/Auth/Companyprofile.vue').default
+      
+  
+  },
   
   
 }
 </script>
 
+<style>
+.auth-tabs {
+    max-width: 500px;
+    margin: 0 auto;
+}
+</style>
